@@ -20,6 +20,13 @@ export default {
       description: 'Group similar sections for styling (e.g., hero, content, testimonials)',
     },
     {
+      name: 'order',
+      type: 'number',
+      title: 'Order Number',
+      description: 'Number to determine the order of sections on the page',
+      validation: Rule => Rule.integer().min(0).warning('Order should be a positive integer'),
+    },
+    {
       name: 'headline',
       type: 'object',
       title: 'Localized Headline',
@@ -43,7 +50,7 @@ export default {
                 ],
                 annotations: [
                   {
-                    name: 'styledSpan', // Custom styled span for highlights
+                    name: 'styledSpan',
                     type: 'object',
                     title: 'Styled Span',
                     fields: [
