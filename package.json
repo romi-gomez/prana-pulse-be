@@ -1,5 +1,5 @@
 {
-  "name": "roaming-studio",
+  "name": "prana-pulse",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -15,12 +15,10 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^3.57.2",
+    "@sanity/vision": "^3.61.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "sanity": "^3.57.2",
+    "sanity": "^3.61.0",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

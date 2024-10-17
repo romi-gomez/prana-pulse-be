@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'roaming-studio',
+  title: 'Prana Pulse',
 
-  projectId: 'n58p8snh',
+  projectId: 'r3oyqv0a',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
