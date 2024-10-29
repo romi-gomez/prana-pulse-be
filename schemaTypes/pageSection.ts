@@ -303,8 +303,23 @@ export default {
         },
         {
           name: 'ctaLink',
-          type: 'url',
-          title: 'CTA Link',
+          type: 'string',
+          title: 'CTA Link or Route',
+          description: 'External link (include https://) or internal route (e.g., /signup)',
+          validation: Rule => Rule.required().custom(link => {
+            // Allow internal routes (starting with "/") or valid URLs
+            if (link.startsWith('/') || /^(https?:\/\/)/.test(link)) {
+              return true;
+            }
+            return 'Link should be an absolute URL or start with "/" for internal routes';
+          }),
+        },
+        {
+          name: 'isExternal',
+          type: 'boolean',
+          title: 'Is External Link?',
+          description: 'Check if this is an external link',
+          initialValue: false,
         },
       ],
     },
