@@ -1,5 +1,6 @@
-import cycleConcept from './cycleConcept.js'
-import oracleCard from './oracleCard.js'
-import mainLanding from './pageSection.js'
+import cycleConcept from './cycleConcept'
+import animalOracle from './animalOracle'
+import pageSection from './pageSection'
+import tarotOracle from './tarotOracle'
 
-export const schemaTypes = [cycleConcept, oracleCard, mainLanding]
+export const schemaTypes = [cycleConcept, animalOracle, pageSection, tarotOracle ]
