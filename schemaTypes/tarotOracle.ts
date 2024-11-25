@@ -123,30 +123,23 @@ export default {
     },
     {
       name: 'affirmation',
-      type: 'object',
+      type: 'array',
       title: 'Afirmaciones',
-      fields: [
+      description: 'Lista de afirmaciones motivadoras asociadas a la carta.',
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las afirmaciones.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Afirmaciones',
-          of: [
+          type: 'object',
+          title: 'Afirmación',
+          fields: [
             {
-              type: 'array',
+              name: 'text',
+              type: 'string', // Changed from array to string
               title: 'Texto de la Afirmación',
-              of: [{ type: 'block' }],
             },
           ],
         },
       ],
-    },
+    },    
     {
       name: 'predictiveMessage',
       type: 'array',
