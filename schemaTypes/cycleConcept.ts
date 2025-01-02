@@ -4,6 +4,17 @@ export default {
   title: 'Cycle Concept',
   fields: [
     {
+      name: 'cycle',
+      type: 'reference',
+      title: 'Ciclo Asociado',
+      description: 'Referencia al ciclo correspondiente.',
+      to: [{ type: 'cycle' }],
+      options: {
+        filter: 'slug.current != null',
+        disableNew: true,
+      },
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Título del Concepto',
@@ -13,9 +24,9 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Este campo actúa como identificador único.',
+      description: 'Identificador único generado a partir del ciclo y el título.',
       options: {
-        source: 'title', // Generado automáticamente desde el nombre
+        source: (doc) => `${doc.cycle ? doc.cycle.name : ''}-${doc.title}`,
         maxLength: 96,
       },
     },
@@ -27,49 +38,22 @@ export default {
     },
     {
       name: 'description',
-      type: 'object',
-      title: 'Descripción del Concepto',
-      fields: [
-        {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional sobre el concepto.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Detalles del Concepto',
-          of: [{ type: 'block' }],
-        },
-      ],
+      type: 'array',
+      title: 'Descripción General',
+      description: 'Texto introductorio del concepto.',
+      of: [{ type: 'block' }],
     },
     {
       name: 'keyAspects',
-      type: 'object',
-      title: 'Aspectos Clave del Concepto',
-      fields: [
+      type: 'array',
+      title: 'Aspectos Clave',
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para los aspectos clave.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Aspectos Clave',
-          of: [
-            {
-              type: 'object',
-              title: 'Aspecto Clave',
-              fields: [
-                { name: 'title', type: 'string', title: 'Título del Aspecto' },
-                { name: 'description', type: 'array', title: 'Descripción del Aspecto', of: [{ type: 'block' }] },
-              ],
-            },
+          type: 'object',
+          title: 'Aspecto Clave',
+          fields: [
+            { name: 'title', type: 'string', title: 'Título del Aspecto' },
+            { name: 'description', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
           ],
         },
       ],
@@ -80,10 +64,15 @@ export default {
       title: 'De Dónde Partimos',
       fields: [
         {
+          name: 'title',
+          type: 'string',
+          title: 'Título de la Sección',
+          description: 'Ejemplo: Inseguridad y Desarraigo',
+        },
+        {
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
-          description: 'Texto introductorio opcional para el punto de partida.',
           of: [{ type: 'block' }],
         },
         {
@@ -96,7 +85,7 @@ export default {
               title: 'Desafío',
               fields: [
                 { name: 'area', type: 'string', title: 'Área (Ej. Emocionalmente, Físicamente)' },
-                { name: 'challenge', type: 'array', title: 'Descripción del Desafío', of: [{ type: 'block' }] },
+                { name: 'description', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
               ],
             },
           ],
@@ -106,49 +95,34 @@ export default {
     {
       name: 'pathToBalance',
       type: 'object',
-      title: 'El Camino Hacia la Estabilidad',
+      title: 'El Camino Hacia',
       fields: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional sobre el camino hacia la estabilidad.',
-          of: [{ type: 'block' }],
+          name: 'title',
+          type: 'string',
+          title: 'Título de la Sección',
+          description: 'Ejemplo: El Camino Hacia la Estabilidad',
         },
         {
-          name: 'items',
+          name: 'description',
           type: 'array',
-          title: 'Detalles del Camino',
+          title: 'Descripción Breve',
           of: [{ type: 'block' }],
         },
       ],
     },
     {
       name: 'objectives',
-      type: 'object',
+      type: 'array',
       title: 'Objetivos del Viaje',
-      fields: [
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para los objetivos.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Objetivos',
-          of: [
-            {
-              type: 'object',
-              title: 'Objetivo',
-              fields: [
-                { name: 'title', type: 'string', title: 'Título del Objetivo' },
-                { name: 'from', type: 'array', title: 'De Dónde Partimos', of: [{ type: 'block' }] },
-                { name: 'to', type: 'array', title: 'Hacia Dónde Vamos', of: [{ type: 'block' }] },
-              ],
-            },
+          type: 'object',
+          title: 'Objetivo',
+          fields: [
+            { name: 'title', type: 'string', title: 'Título del Objetivo' },
+            { name: 'from', type: 'array', title: 'De Dónde Partimos', of: [{ type: 'block' }] },
+            { name: 'to', type: 'array', title: 'Hacia Dónde Vamos', of: [{ type: 'block' }] },
           ],
         },
       ],
@@ -156,66 +130,61 @@ export default {
     {
       name: 'transformation',
       type: 'object',
-      title: 'Transformación y Armonía',
+      title: 'Transformación',
       fields: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional sobre la transformación.',
-          of: [{ type: 'block' }],
+          name: 'title',
+          type: 'string',
+          title: 'Título de la Sección',
+          description: 'Ejemplo: Transformación y Armonía',
         },
         {
-          name: 'items',
+          name: 'description',
           type: 'array',
-          title: 'Detalles de Transformación',
+          title: 'Descripción',
           of: [{ type: 'block' }],
         },
       ],
     },
     {
-      name: 'oracleMessage',
-      type: 'object',
-      title: 'Mensaje del Oráculo',
-      fields: [
+      name: 'oracleMessages',
+      type: 'array',
+      title: 'Mensajes del Oráculo',
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para el mensaje del oráculo.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Mensajes',
-          of: [{ type: 'block' }],
-        },
-      ],
-    },
-    {
-      name: 'oracleInvitation',
-      type: 'object',
-      title: 'Invitación del Oráculo',
-      fields: [
-        {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las invitaciones.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Invitaciones',
-          of: [
+          type: 'object',
+          title: 'Mensaje del Oráculo',
+          fields: [
             {
-              type: 'object',
-              title: 'Invitación',
-              fields: [
-                { name: 'title', type: 'string', title: 'Título de la Invitación' },
-                { name: 'content', type: 'array', title: 'Descripción de la Invitación', of: [{ type: 'block' }] },
+              name: 'message',
+              type: 'array',
+              title: 'Mensaje del Oráculo',
+              description: 'Texto enriquecido para el mensaje del oráculo.',
+              of: [{ type: 'block' }],
+            },
+            {
+              name: 'invitations',
+              type: 'array',
+              title: 'Invitaciones del Oráculo',
+              of: [
+                {
+                  type: 'object',
+                  title: 'Invitación del Oráculo',
+                  fields: [
+                    {
+                      name: 'title',
+                      type: 'string',
+                      title: 'Título de la Invitación',
+                      description: 'Ejemplo: "Conéctate con la Naturaleza"',
+                    },
+                    {
+                      name: 'description',
+                      type: 'array',
+                      title: 'Descripción de la Invitación',
+                      of: [{ type: 'block' }],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -223,132 +192,63 @@ export default {
       ],
     },
     {
-      name: 'affirmation',
-      type: 'object',
+      name: 'affirmations',
+      type: 'array',
       title: 'Afirmaciones',
-      fields: [
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las afirmaciones.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Afirmaciones',
-          of: [
-            {
-              type: 'object',
-              title: 'Afirmación',
-              fields: [
-                {
-                  name: 'text',
-                  type: 'array',
-                  title: 'Texto de la Afirmación',
-                  of: [{ type: 'block' }],
-                },
-              ],
-            },
+          type: 'object',
+          title: 'Afirmación',
+          fields: [
+            { name: 'text', type: 'string', title: 'Texto de la Afirmación' },
           ],
         },
       ],
     },
     {
       name: 'activities',
-      type: 'object',
-      title: 'Propuesta de Actividad',
-      fields: [
+      type: 'array',
+      title: 'Propuesta de Actividades',
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las actividades.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Actividades',
-          of: [
-            {
-              type: 'object',
-              title: 'Actividad',
-              fields: [
-                { name: 'title', type: 'string', title: 'Título de la Actividad' },
-                { name: 'instructions', type: 'array', title: 'Instrucciones', of: [{ type: 'block' }] },
-              ],
-            },
+          type: 'object',
+          title: 'Actividad',
+          fields: [
+            { name: 'title', type: 'string', title: 'Título de la Actividad' },
+            { name: 'description', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
+            { name: 'media', type: 'array', title: 'Archivos Asociados', of: [{ type: 'url' }] },
           ],
         },
       ],
     },
     {
       name: 'guidedMeditations',
-      type: 'object',
+      type: 'array',
       title: 'Meditaciones Guiadas',
-      fields: [
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las meditaciones guiadas.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Meditaciones',
-          of: [
-            {
-              type: 'object',
-              title: 'Meditación Guiada',
-              fields: [
-                { name: 'title', type: 'string', title: 'Título de la Meditación' },
-                { name: 'instructions', type: 'array', title: 'Instrucciones', of: [{ type: 'block' }] },
-              ],
-            },
+          type: 'object',
+          title: 'Meditación Guiada',
+          fields: [
+            { name: 'title', type: 'string', title: 'Título de la Meditación' },
+            { name: 'description', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
+            { name: 'media', type: 'array', title: 'Archivos Asociados', of: [{ type: 'url' }] },
           ],
         },
       ],
     },
     {
-      name: 'dailyMeditation',
-      type: 'object',
+      name: 'dailyMeditations',
+      type: 'array',
       title: 'Meditaciones Cotidianas',
-      fields: [
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las meditaciones diarias.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Meditaciones Diarias',
-          of: [
-            {
-              type: 'object',
-              title: 'Meditación',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'string',
-                  title: 'Título de la Meditación',
-                  description: 'Ejemplo: Meditación de Conexión a Tierra',
-                },
-                {
-                  name: 'description',
-                  type: 'array',
-                  title: 'Descripción de la Meditación',
-                  description: 'Instrucciones detalladas o beneficios de la meditación.',
-                  of: [{ type: 'block' }],
-                },
-              ],
-            },
+          type: 'object',
+          title: 'Meditación Cotidiana',
+          fields: [
+            { name: 'title', type: 'string', title: 'Título de la Meditación' },
+            { name: 'description', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
+            { name: 'media', type: 'array', title: 'Archivos Asociados', of: [{ type: 'url' }] },
           ],
         },
       ],
@@ -356,30 +256,37 @@ export default {
     {
       name: 'media',
       type: 'object',
-      title: 'Archivos Multimedia',
+      title: 'Archivos Multimedia Asociados',
       fields: [
         {
-          name: 'introduction',
+          name: 'images',
           type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para los archivos multimedia.',
-          of: [{ type: 'block' }],
+          title: 'Imágenes',
+          of: [{ type: 'url' }],
         },
         {
-          name: 'items',
+          name: 'videos',
           type: 'array',
-          title: 'Lista de Archivos Multimedia',
-          of: [
-            {
-              type: 'object',
-              title: 'Archivo Multimedia',
-              fields: [
-                { name: 'type', type: 'string', title: 'Tipo (imagen, video, audio, link)' },
-                { name: 'url', type: 'url', title: 'URL del Archivo' },
-                { name: 'description', type: 'string', title: 'Descripción del Archivo (opcional)' },
-              ],
-            },
-          ],
+          title: 'Videos',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'audios',
+          type: 'array',
+          title: 'Audios',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'links',
+          type: 'array',
+          title: 'Enlaces Externos',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'spotifyPlaylists',
+          type: 'array',
+          title: 'Playlists de Spotify',
+          of: [{ type: 'url' }],
         },
       ],
     },

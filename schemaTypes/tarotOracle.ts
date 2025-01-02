@@ -10,10 +10,21 @@ export default {
       description: 'Ejemplo: El Loco',
     },
     {
+      name: 'cycle',
+      type: 'reference',
+      title: 'Ciclo Asociado',
+      description: 'Referencia al ciclo correspondiente.',
+      to: [{ type: 'cycle' }],
+      options: {
+        filter: 'slug.current != null',
+        disableNew: true,
+      },
+    },
+    {
       name: 'associatedConcept',
       type: 'string',
       title: 'Concepto de Prana Pulse Asociado',
-      description: 'Ejemplo: Presencia Fundamental',
+      description: 'Ejemplo: Equilibrio Interior',
     },
     {
       name: 'associatedChakra',
@@ -23,28 +34,9 @@ export default {
     },
     {
       name: 'keywords',
-      type: 'object',
+      type: 'array',
       title: 'Palabras Clave del Tarot',
-      fields: [
-        {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las palabras clave.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Palabras Clave',
-          of: [
-            {
-              type: 'string',
-              title: 'Palabra Clave',
-            },
-          ],
-        },
-      ],
+      of: [{ type: 'string', title: 'Palabra Clave' }],
     },
     {
       name: 'mainMessage',
@@ -105,12 +97,7 @@ export default {
           name: 'items',
           type: 'array',
           title: 'Lista de Consejos',
-          of: [
-            {
-              type: 'string',
-              title: 'Consejo',
-            },
-          ],
+          of: [{ type: 'string', title: 'Consejo' }],
         },
       ],
     },
@@ -119,6 +106,47 @@ export default {
       type: 'array',
       title: 'Práctica Intuitiva',
       description: 'Ejemplo: Ejercicio de conexión con la carta.',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'predictiveInsights',
+      type: 'array',
+      title: 'Mensajes Predictivos',
+      description: 'Cada mensaje predictivo incluye su interpretación y reflexión final.',
+      of: [
+        {
+          type: 'object',
+          title: 'Mensaje Predictivo',
+          fields: [
+            {
+              name: 'predictiveMessage',
+              type: 'array',
+              title: 'Mensaje Predictivo',
+              of: [{ type: 'block' }],
+            },
+            {
+              name: 'interpretation',
+              type: 'array',
+              title: 'Interpretación',
+              description: 'Interpretación del mensaje predictivo.',
+              of: [{ type: 'block' }],
+            },
+            {
+              name: 'reflection',
+              type: 'array',
+              title: 'Reflexión Final',
+              description: 'Reflexión asociada al mensaje predictivo.',
+              of: [{ type: 'block' }],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'closing',
+      type: 'array',
+      title: 'Cierre del Tarot',
+      description: 'Mensaje final de la carta.',
       of: [{ type: 'block' }],
     },
     {
@@ -133,61 +161,47 @@ export default {
           fields: [
             {
               name: 'text',
-              type: 'string', // Changed from array to string
+              type: 'string',
               title: 'Texto de la Afirmación',
             },
           ],
         },
       ],
-    },    
-    {
-      name: 'predictiveMessage',
-      type: 'array',
-      title: 'Mensaje Predictivo',
-      description: 'Predicción asociada a la carta.',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'closing',
-      type: 'array',
-      title: 'Cierre del Tarot',
-      description: 'Mensaje final de la carta.',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'reflection',
-      type: 'array',
-      title: 'Reflexión Final',
-      description: 'Reflexión que resume el mensaje de la carta.',
-      of: [{ type: 'block' }],
     },
     {
       name: 'media',
       type: 'object',
-      title: 'Archivos Multimedia',
+      title: 'Archivos Multimedia Asociados',
       fields: [
         {
-          name: 'introduction',
+          name: 'images',
           type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para los archivos multimedia.',
-          of: [{ type: 'block' }],
+          title: 'Imágenes',
+          of: [{ type: 'url' }],
         },
         {
-          name: 'items',
+          name: 'videos',
           type: 'array',
-          title: 'Lista de Archivos Multimedia',
-          of: [
-            {
-              type: 'object',
-              title: 'Archivo Multimedia',
-              fields: [
-                { name: 'type', type: 'string', title: 'Tipo (imagen, video, audio, link)' },
-                { name: 'url', type: 'url', title: 'URL del Archivo' },
-                { name: 'description', type: 'string', title: 'Descripción del Archivo (opcional)' },
-              ],
-            },
-          ],
+          title: 'Videos',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'audios',
+          type: 'array',
+          title: 'Audios',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'links',
+          type: 'array',
+          title: 'Enlaces Externos',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'spotifyPlaylists',
+          type: 'array',
+          title: 'Playlists de Spotify',
+          of: [{ type: 'url' }],
         },
       ],
     },

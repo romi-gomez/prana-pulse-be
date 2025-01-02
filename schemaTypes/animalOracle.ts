@@ -34,36 +34,24 @@ export default {
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
-          description: 'Texto introductorio opcional sobre el simbolismo.',
+          description: 'Texto introductorio sobre el simbolismo del animal.',
           of: [{ type: 'block' }],
         },
         {
-          name: 'items',
+          name: 'description',
           type: 'array',
-          title: 'Lista de Simbolismos',
+          title: 'Descripción del Simbolismo',
+          description: 'Lista de aspectos o explicaciones simbólicas.',
           of: [{ type: 'block' }],
         },
       ],
     },
     {
       name: 'energyDescription',
-      type: 'object',
+      type: 'array',
       title: 'Descripción Energética',
-      fields: [
-        {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional sobre la energía.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Descripciones Energéticas',
-          of: [{ type: 'block' }],
-        },
-      ],
+      description: 'Texto para describir la energía representada por el animal.',
+      of: [{ type: 'block' }],
     },
     {
       name: 'oracleMessage',
@@ -71,16 +59,10 @@ export default {
       title: 'Mensaje del Oráculo',
       fields: [
         {
-          name: 'introduction',
+          name: 'message',
           type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para el mensaje del oráculo.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Mensajes',
+          title: 'Mensaje Principal',
+          description: 'El mensaje principal del animal oráculo.',
           of: [{ type: 'block' }],
         },
       ],
@@ -94,11 +76,11 @@ export default {
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
-          description: 'Texto introductorio opcional para las invitaciones.',
+          description: 'Texto introductorio para las invitaciones.',
           of: [{ type: 'block' }],
         },
         {
-          name: 'items',
+          name: 'invitations',
           type: 'array',
           title: 'Lista de Invitaciones',
           of: [
@@ -107,7 +89,7 @@ export default {
               title: 'Invitación',
               fields: [
                 { name: 'title', type: 'string', title: 'Título de la Invitación' },
-                { name: 'content', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
+                { name: 'description', type: 'array', title: 'Descripción', of: [{ type: 'block' }] },
               ],
             },
           ],
@@ -120,16 +102,10 @@ export default {
       title: 'Propuesta de Actividad',
       fields: [
         {
-          name: 'introduction',
+          name: 'description',
           type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las actividades.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Actividades',
+          title: 'Descripción',
+          description: 'Actividad principal inspirada en el mensaje del animal.',
           of: [{ type: 'block' }],
         },
       ],
@@ -140,48 +116,34 @@ export default {
       title: 'Concepto Relacionado de Prana Pulse',
       fields: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para los conceptos relacionados.',
-          of: [{ type: 'block' }],
+          name: 'title',
+          type: 'string',
+          title: 'Título del Concepto',
+          description: 'Ejemplo: Presencia Fundamental',
         },
         {
-          name: 'items',
+          name: 'description',
           type: 'array',
-          title: 'Lista de Conceptos Relacionados',
+          title: 'Descripción del Concepto',
           of: [{ type: 'block' }],
         },
       ],
     },
     {
       name: 'affirmation',
-      type: 'object',
+      type: 'array',
       title: 'Afirmaciones',
-      fields: [
+      description: 'Lista de afirmaciones relacionadas con el animal.',
+      of: [
         {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las afirmaciones.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Afirmaciones',
-          of: [
+          type: 'object',
+          title: 'Afirmación',
+          fields: [
             {
-              type: 'object',
-              title: 'Afirmación',
-              fields: [
-                {
-                  name: 'text',
-                  type: 'array',
-                  title: 'Texto de la Afirmación',
-                  of: [{ type: 'block' }],
-                },
-              ],
+              name: 'text',
+              type: 'array',
+              title: 'Texto de la Afirmación',
+              of: [{ type: 'block' }],
             },
           ],
         },
@@ -193,16 +155,10 @@ export default {
       title: 'Mensaje Predictivo para la Semana',
       fields: [
         {
-          name: 'introduction',
+          name: 'description',
           type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para el mensaje predictivo.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Mensajes Predictivos',
+          title: 'Descripción',
+          description: 'El mensaje predictivo principal relacionado con el animal.',
           of: [{ type: 'block' }],
         },
       ],
@@ -216,7 +172,7 @@ export default {
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
-          description: 'Texto introductorio opcional para las invitaciones semanales.',
+          description: 'Texto introductorio para las invitaciones semanales.',
           of: [{ type: 'block' }],
         },
         {
@@ -238,51 +194,46 @@ export default {
     },
     {
       name: 'interpretation',
-      type: 'object',
+      type: 'array',
       title: 'Interpretación del Mensaje Predictivo',
-      fields: [
-        {
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para las interpretaciones.',
-          of: [{ type: 'block' }],
-        },
-        {
-          name: 'items',
-          type: 'array',
-          title: 'Lista de Interpretaciones',
-          of: [{ type: 'block' }],
-        },
-      ],
+      description: 'Lista de interpretaciones relacionadas con el mensaje semanal.',
+      of: [{ type: 'block' }],
     },
+
     {
       name: 'media',
       type: 'object',
-      title: 'Archivos Multimedia',
+      title: 'Archivos Multimedia Asociados',
       fields: [
         {
-          name: 'introduction',
+          name: 'images',
           type: 'array',
-          title: 'Introducción',
-          description: 'Texto introductorio opcional para los archivos multimedia.',
-          of: [{ type: 'block' }],
+          title: 'Imágenes',
+          of: [{ type: 'url' }],
         },
         {
-          name: 'items',
+          name: 'videos',
           type: 'array',
-          title: 'Lista de Archivos Multimedia',
-          of: [
-            {
-              type: 'object',
-              title: 'Archivo Multimedia',
-              fields: [
-                { name: 'type', type: 'string', title: 'Tipo (imagen, video, audio, link)' },
-                { name: 'url', type: 'url', title: 'URL del Archivo' },
-                { name: 'description', type: 'string', title: 'Descripción del Archivo (opcional)' },
-              ],
-            },
-          ],
+          title: 'Videos',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'audios',
+          type: 'array',
+          title: 'Audios',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'links',
+          type: 'array',
+          title: 'Enlaces Externos',
+          of: [{ type: 'url' }],
+        },
+        {
+          name: 'spotifyPlaylists',
+          type: 'array',
+          title: 'Playlists de Spotify',
+          of: [{ type: 'url' }],
         },
       ],
     },
