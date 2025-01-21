@@ -1,7 +1,7 @@
 export default {
   name: 'pageSection',
   type: 'document',
-  title: 'Page Section',
+  title: 'Main Page Sections',
   fields: [
     {
       name: 'id',

@@ -1,7 +1,7 @@
 export default {
   name: 'tarotOracle',
   type: 'document',
-  title: 'Tarot Oracle',
+  title: 'Tarot Oracle Cards',
   fields: [
     {
       name: 'name',

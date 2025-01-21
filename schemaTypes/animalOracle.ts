@@ -1,7 +1,7 @@
 export default {
   name: 'animalOracle',
   type: 'document',
-  title: 'Animal Oracle',
+  title: 'Animals Oracle Cards',
   fields: [
     {
       name: 'animalName',

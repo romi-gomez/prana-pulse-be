@@ -1,7 +1,7 @@
 export default {
   name: 'cycle',
   type: 'document',
-  title: 'Cycle',
+  title: 'Cycles',
   fields: [
     {
       name: 'name',

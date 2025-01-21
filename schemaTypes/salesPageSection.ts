@@ -1,7 +1,7 @@
 export default {
   name: 'salesPageSection',
   type: 'document',
-  title: 'Sales Page Section',
+  title: 'Sales Page Sections',
   fields: [
     {
       name: 'id',
