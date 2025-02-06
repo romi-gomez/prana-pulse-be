@@ -1,10 +1,13 @@
-import cycleConcept from './cycleConcept'
-import animalOracle from './animalOracle'
-import pageSection from './pageSection'
-import tarotOracle from './tarotOracle'
-import salesPageSection from './salesPageSection'
-import cycle from './cycleGeneral'
+import cycleConcept from './content/cycleConcept'
+import animalOracle from './content/animalOracle'
+import pageSection from './landings/pageSection'
+import tarotOracle from './content/tarotOracle'
+import salesPageSection from './landings/salesPageSection'
+import cycle from './content/cycleGeneral'
+import globalContent from './ui/globalContent'
+import navigationLinks from './ui/navigationLinks'
 
-export const schemaTypes = [cycle, cycleConcept, animalOracle, tarotOracle, pageSection, salesPageSection ]
+
+export const schemaTypes = [cycle, cycleConcept, animalOracle, tarotOracle, pageSection, salesPageSection, globalContent, navigationLinks]
 
   
