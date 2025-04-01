@@ -7,8 +7,7 @@ import cycle from './content/cycleGeneral'
 import globalContent from './ui/globalContent'
 import navigationLinks from './ui/navigationLinks'
 import comingSoonSection from './landings/comingSoonSection'
+import ebookTranslations from './ui/ebookTranslations'
 
 
-export const schemaTypes = [cycle, cycleConcept, animalOracle, tarotOracle, pageSection, salesPageSection, globalContent, navigationLinks, comingSoonSection]
-
-  
+export const schemaTypes = [cycle, cycleConcept, animalOracle, tarotOracle, pageSection, salesPageSection, globalContent, navigationLinks, comingSoonSection, ebookTranslations]
