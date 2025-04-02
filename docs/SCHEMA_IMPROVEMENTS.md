@@ -1,21 +1,22 @@
 # Sanity Schema Improvements Roadmap
 
-## Phase 1: Refactor to use defineType/defineField (In Progress)
+## Phase 1: Refactor to use defineType/defineField (Completed)
 - [x] Refactor cycleGeneral.ts to use defineType/defineField
-- [ ] Refactor cycleConcept.ts to use defineType/defineField
-- [ ] Refactor animalOracle.ts to use defineType/defineField
-- [ ] Refactor tarotOracle.ts to use defineType/defineField
-- [ ] Refactor pageSection.ts to use defineType/defineField
-- [ ] Refactor salesPageSection.ts to use defineType/defineField
-- [ ] Refactor globalContent.ts to use defineType/defineField
-- [ ] Refactor navigationLinks.ts to use defineType/defineField
-- [ ] Refactor comingSoonSection.ts to use defineType/defineField
+- [x] Refactor cycleConcept.ts to use defineType/defineField
+- [x] Refactor animalOracle.ts to use defineType/defineField
+- [x] Refactor tarotOracle.ts to use defineType/defineField
+- [x] Refactor pageSection.ts to use defineType/defineField
+- [x] Refactor salesPageSection.ts to use defineType/defineField
+- [x] Refactor globalContent.ts to use defineType/defineField
+- [x] Refactor navigationLinks.ts to use defineType/defineField
+- [x] Refactor comingSoonSection.ts to use defineType/defineField
 
 ## Phase 2: Schema Enhancements
 
 ### Add Descriptions
 - [ ] Add detailed descriptions to all document types
 - [ ] Add helpful descriptions to fields to guide content editors
+- [ ] Use JSX in descriptions for more complex formatting (collapsible details)
 
 ### Add Validation
 - [ ] Implement validation rules for required fields
@@ -23,22 +24,30 @@
 - [ ] Add min/max length validation for text fields
 - [ ] Add number range validation where appropriate
 - [ ] Implement custom validation functions for complex rules
+- [ ] Add custom error messages to validation rules
+- [ ] Use warning level validation for editorial standards
+- [ ] Implement info level validation for additional context
 
 ### Conditional Fields
 - [ ] Hide slug field until name is filled
 - [ ] Implement conditional display logic for related fields
 - [ ] Show/hide sections based on selection in other fields
+- [ ] Use the hidden attribute with functions for dynamic visibility
 
 ### Organize Content with Groups/Tabs
 - [ ] Group related fields into logical sections
 - [ ] Implement tabs for better organization of complex documents
 - [ ] Create field groups for better content editing experience
+- [ ] Use fieldsets to visually arrange related fields
+- [ ] Implement columns for side-by-side field display
+- [ ] Use collapsible fieldsets for optional or advanced sections
 
 ### Improve Visual Experience
 - [ ] Add icons for document types
 - [ ] Implement custom previews for documents
 - [ ] Use prepare() to format preview data
 - [ ] Add custom input components where appropriate
+- [ ] Ensure proper title casing for field titles (e.g., URL instead of Url)
 
 ### Media Handling
 - [ ] Ensure consistent handling of media URLs across all schemas
@@ -49,39 +58,41 @@
 ### Custom Components
 - [ ] Implement custom UI components using @sanity/ui
 - [ ] Create reusable field components for common patterns
-- [ ] Build custom input components for specialized content types
+- [ ] Develop custom input components for specialized data entry
 
-### Structure Customization
-- [ ] Create structure folder with Structure resolver
-- [ ] Customize structure in sanity.config.ts
-- [ ] Implement conditional document filtering (e.g., categorized content views)
-- [ ] Add custom document actions and document badges
-
-### Document Views
-- [ ] Install and configure sanity-plugin-documents-pane
-- [ ] Create DefaultDocumentNode.ts for custom document views
-- [ ] Implement customized lists and document view panes
-- [ ] Utilize Structure Builder API for advanced customization
+### Document Structure Customization
+- [ ] Customize document structure in sanity config
+- [ ] Create Structure folder with Structure resolver
+- [ ] Implement custom structure with conditional filtering
+- [ ] Set up document views with sanity-plugin-documents-pane
+- [ ] Configure DefaultDocumentNode.ts
+- [ ] Create customized lists and document view panes
+- [ ] Implement Structure Builder API
 
 ## Phase 4: Next.js Integration and TypeScript Support
 
-### Next.js Setup
+### Next.js Integration
 - [ ] Configure next-sanity and @sanity/image-url
 - [ ] Set up proper project structure with side-by-side folders
 - [ ] Create Sanity client configuration
-- [ ] Implement live.ts for loading live content (sanityLive, sanityFetch)
+- [ ] Implement live.ts file for loading live content
 
-### TypeScript Integration
-- [ ] Run schema extraction with `npx sanity@latest schema extract`
-- [ ] Configure sanity-typegen.json
+### TypeScript Support
+- [ ] Extract schema with `npx sanity@latest schema extract`
+- [ ] Set up type generation with sanity-typegen.json
 - [ ] Generate types with `npx sanity@latest typegen generate`
-- [ ] Update code to leverage generated TypeScript types
+- [ ] Implement Sanity TypeGen for automatic type generation
+- [ ] Create TypeScript types for Sanity Content Lake documents
+- [ ] Generate TypeScript types for GROQ query results
+- [ ] Set up automatic type generation in the build process
+- [ ] Use generated types in front-end components for type safety
+- [ ] Create type-safe GROQ query builders
 
 ## Phase 5: Deployment and Optimization
-- [ ] Run `sanity deploy` to deploy studio
+- [ ] Deploy Sanity Studio with `sanity deploy`
 - [ ] Optimize performance for large datasets
-- [ ] Implement proper caching strategies
-- [ ] Set up continuous deployment workflow
+- [ ] Implement caching strategies
+- [ ] Set up proper CORS and security settings
 
 ## Implementation Notes
 
