@@ -4,6 +4,7 @@ export default defineType({
   name: 'animalOracle',
   type: 'document',
   title: 'Animals Oracle Cards',
+  description: 'Oracle cards with animal symbolism and messages',
   fields: [
     defineField({
       name: 'animalName',
@@ -31,20 +32,21 @@ export default defineType({
       name: 'symbolism',
       type: 'object',
       title: 'Explicación del Simbolismo',
+      description: 'Información sobre el simbolismo del animal',
       fields: [
         defineField({
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
           description: 'Texto introductorio sobre el simbolismo del animal.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
         defineField({
           name: 'description',
           type: 'array',
           title: 'Descripción del Simbolismo',
           description: 'Lista de aspectos o explicaciones simbólicas.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
       ],
     }),
@@ -53,19 +55,20 @@ export default defineType({
       type: 'array',
       title: 'Descripción Energética',
       description: 'Texto para describir la energía representada por el animal.',
-      of: [defineField({ type: 'block', name: 'content' })],
+      of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
     }),
     defineField({
       name: 'oracleMessage',
       type: 'object',
       title: 'Mensaje del Oráculo',
+      description: 'Mensaje principal del oráculo del animal',
       fields: [
         defineField({
           name: 'message',
           type: 'array',
           title: 'Mensaje Principal',
           description: 'El mensaje principal del animal oráculo.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
       ],
     }),
@@ -73,30 +76,34 @@ export default defineType({
       name: 'oracleInvitation',
       type: 'object',
       title: 'Invitación del Oráculo',
+      description: 'Invitaciones y propuestas del oráculo',
       fields: [
         defineField({
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
           description: 'Texto introductorio para las invitaciones.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
         defineField({
           name: 'invitations',
           type: 'array',
           title: 'Lista de Invitaciones',
+          description: 'Lista de invitaciones específicas del oráculo',
           of: [
             defineField({
               name: 'invitation',
               type: 'object',
               title: 'Invitación',
+              description: 'Una invitación específica del oráculo',
               fields: [
-                defineField({ name: 'title', type: 'string', title: 'Título de la Invitación' }),
+                defineField({ name: 'title', type: 'string', title: 'Título de la Invitación', description: 'Título breve para esta invitación' }),
                 defineField({ 
                   name: 'description', 
                   type: 'array', 
                   title: 'Descripción', 
-                  of: [defineField({ type: 'block', name: 'content' })] 
+                  description: 'Descripción detallada de la invitación',
+                  of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })] 
                 }),
               ],
             }),
@@ -108,13 +115,14 @@ export default defineType({
       name: 'activityProposal',
       type: 'object',
       title: 'Propuesta de Actividad',
+      description: 'Propuesta de actividad relacionada con el animal',
       fields: [
         defineField({
           name: 'description',
           type: 'array',
           title: 'Descripción',
           description: 'Actividad principal inspirada en el mensaje del animal.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
       ],
     }),
@@ -122,6 +130,7 @@ export default defineType({
       name: 'relatedConcept',
       type: 'object',
       title: 'Concepto Relacionado de Prana Pulse',
+      description: 'Concepto de Prana Pulse relacionado con este animal',
       fields: [
         defineField({
           name: 'title',
@@ -133,7 +142,8 @@ export default defineType({
           name: 'description',
           type: 'array',
           title: 'Descripción del Concepto',
-          of: [defineField({ type: 'block', name: 'content' })],
+          description: 'Descripción detallada del concepto relacionado',
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
       ],
     }),
@@ -147,12 +157,14 @@ export default defineType({
           name: 'affirmationItem',
           type: 'object',
           title: 'Afirmación',
+          description: 'Una afirmación individual',
           fields: [
             defineField({
               name: 'text',
               type: 'array',
               title: 'Texto de la Afirmación',
-              of: [defineField({ type: 'block', name: 'content' })],
+              description: 'El texto de la afirmación',
+              of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
             }),
           ],
         }),
@@ -162,13 +174,14 @@ export default defineType({
       name: 'weeklyPrediction',
       type: 'object',
       title: 'Mensaje Predictivo para la Semana',
+      description: 'Mensaje predictivo semanal relacionado con el animal',
       fields: [
         defineField({
           name: 'description',
           type: 'array',
           title: 'Descripción',
           description: 'El mensaje predictivo principal relacionado con el animal.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
       ],
     }),
@@ -176,30 +189,34 @@ export default defineType({
       name: 'weeklyInvitation',
       type: 'object',
       title: 'Invitación Semanal del Oráculo',
+      description: 'Invitaciones semanales del oráculo',
       fields: [
         defineField({
           name: 'introduction',
           type: 'array',
           title: 'Introducción',
           description: 'Texto introductorio para las invitaciones semanales.',
-          of: [defineField({ type: 'block', name: 'content' })],
+          of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
         }),
         defineField({
           name: 'items',
           type: 'array',
           title: 'Lista de Invitaciones',
+          description: 'Lista de invitaciones semanales específicas',
           of: [
             defineField({
               name: 'invitation',
               type: 'object',
               title: 'Invitación',
+              description: 'Una invitación semanal específica',
               fields: [
-                defineField({ name: 'title', type: 'string', title: 'Título de la Invitación' }),
+                defineField({ name: 'title', type: 'string', title: 'Título de la Invitación', description: 'Título breve para esta invitación semanal' }),
                 defineField({ 
                   name: 'content', 
                   type: 'array', 
                   title: 'Contenido', 
-                  of: [defineField({ type: 'block', name: 'content' })] 
+                  description: 'Contenido detallado de la invitación semanal',
+                  of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })] 
                 }),
               ],
             }),
@@ -212,42 +229,48 @@ export default defineType({
       type: 'array',
       title: 'Interpretación del Mensaje Predictivo',
       description: 'Lista de interpretaciones relacionadas con el mensaje semanal.',
-      of: [defineField({ type: 'block', name: 'content' })],
+      of: [defineField({ type: 'block', name: 'content', description: 'Contenido de texto enriquecido' })],
     }),
     defineField({
       name: 'media',
       type: 'object',
       title: 'Archivos Multimedia Asociados',
+      description: 'Archivos multimedia relacionados con el animal',
       fields: [
         defineField({
           name: 'images',
           type: 'array',
           title: 'Imágenes',
-          of: [defineField({ type: 'string' })],
+          description: 'Lista de imágenes relacionadas con el animal',
+          of: [defineField({ type: 'string', description: 'URL de la imagen' })],
         }),
         defineField({
           name: 'videos',
           type: 'array',
           title: 'Videos',
-          of: [defineField({ type: 'string' })],
+          description: 'Lista de videos relacionados con el animal',
+          of: [defineField({ type: 'string', description: 'URL del video' })],
         }),
         defineField({
           name: 'audios',
           type: 'array',
           title: 'Audios',
-          of: [defineField({ type: 'string' })],
+          description: 'Lista de audios relacionados con el animal',
+          of: [defineField({ type: 'string', description: 'URL del audio' })],
         }),
         defineField({
           name: 'links',
           type: 'array',
           title: 'Enlaces Externos',
-          of: [defineField({ type: 'string' })],
+          description: 'Lista de enlaces externos relacionados con el animal',
+          of: [defineField({ type: 'string', description: 'URL del enlace' })],
         }),
         defineField({
           name: 'spotifyPlaylists',
           type: 'array',
           title: 'Playlists de Spotify',
-          of: [defineField({ type: 'string' })],
+          description: 'Lista de playlists de Spotify relacionadas con el animal',
+          of: [defineField({ type: 'string', description: 'URL de la playlist' })],
         }),
       ],
     }),
