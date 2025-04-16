@@ -13,6 +13,11 @@
 
 ## Phase 2: Schema Enhancements
 
+### Add New Fields
+- [x] Add oraclePhrases array field to cycleGeneral, cycleConcept, animalOracle, and tarotOracle schemas
+  - Array of phrases/quotes that can be used for oracle readings
+  - Each phrase should include the text and an optional explanation/context
+
 ### Add Descriptions
 - [ ] Add detailed descriptions to all document types
 - [ ] Add helpful descriptions to fields to guide content editors

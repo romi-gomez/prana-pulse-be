@@ -222,6 +222,31 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'oraclePhrases',
+      type: 'array',
+      title: 'Frases del Oráculo',
+      of: [
+        defineField({
+          name: 'oraclePhrase',
+          type: 'object',
+          title: 'Frase del Oráculo',
+          fields: [
+            defineField({ 
+              name: 'text', 
+              type: 'string', 
+              title: 'Texto de la Frase' 
+            }),
+            defineField({ 
+              name: 'explanation', 
+              type: 'array', 
+              title: 'Explicación', 
+              of: [{ type: 'block' }] 
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: 'practices',
       type: 'array',
       title: 'Prácticas Recomendadas',
@@ -384,66 +409,42 @@ export default defineType({
       name: 'media',
       type: 'object',
       title: 'Archivos Multimedia Asociados',
+      description: 'Archivos multimedia relacionados con el animal',
       fields: [
         defineField({
           name: 'images',
           type: 'array',
           title: 'Imágenes',
-          of: [
-            defineField({
-              name: 'imageItem',
-              type: 'object',
-              title: 'Imagen',
-              fields: [
-                defineField({
-                  name: 'url',
-                  type: 'string',
-                  title: 'URL de la Imagen',
-                }),
-                defineField({
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Texto Alternativo',
-                  description: 'Descripción de la imagen para accesibilidad',
-                }),
-                defineField({
-                  name: 'caption',
-                  type: 'string',
-                  title: 'Leyenda',
-                  description: 'Texto descriptivo que aparece debajo de la imagen',
-                }),
-              ],
-            }),
-          ],
+          description: 'Lista de imágenes relacionadas con el animal',
+          of: [defineField({ type: 'string', name: 'imageUrl' })],
         }),
         defineField({
           name: 'videos',
           type: 'array',
           title: 'Videos',
-          of: [
-            defineField({
-              name: 'video',
-              type: 'object',
-              title: 'Video',
-              fields: [
-                defineField({
-                  name: 'url',
-                  type: 'string',
-                  title: 'URL del Video',
-                }),
-                defineField({
-                  name: 'title',
-                  type: 'string',
-                  title: 'Título del Video',
-                }),
-                defineField({
-                  name: 'description',
-                  type: 'text',
-                  title: 'Descripción del Video',
-                }),
-              ],
-            }),
-          ],
+          description: 'Lista de videos relacionados con el animal',
+          of: [defineField({ type: 'string', name: 'video' })],
+        }),
+        defineField({
+          name: 'audios',
+          type: 'array',
+          title: 'Audios',
+          description: 'Lista de audios relacionados con el animal',
+          of: [defineField({ type: 'string', name: 'audio' })],
+        }),
+        defineField({
+          name: 'links',
+          type: 'array',
+          title: 'Enlaces Externos',
+          description: 'Lista de enlaces externos relacionados con el animal',
+          of: [defineField({ type: 'string', name: 'link' })],
+        }),
+        defineField({
+          name: 'spotifyPlaylists',
+          type: 'array',
+          title: 'Playlists de Spotify',
+          description: 'Lista de playlists de Spotify relacionadas con el animal',
+          of: [defineField({ type: 'string', name: 'spotifyPlaylist' })],
         }),
       ],
     }),

@@ -5,7 +5,7 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Prana Pulse',
+  title: 'Frecuencia Humana',
 
   projectId: 'r3oyqv0a',
   dataset: 'production',
