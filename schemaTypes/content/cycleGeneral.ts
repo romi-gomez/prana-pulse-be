@@ -28,6 +28,12 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'mainConcept',
+      type: 'string',
+      title: 'Concepto Principal',
+      description: 'Idea o concepto fundamental que define este ciclo (ejemplo: Estabilidad, Conexión, Expansión).',
+    }),
+    defineField({
       name: 'generalDescription',
       type: 'array',
       title: 'Descripción General',
