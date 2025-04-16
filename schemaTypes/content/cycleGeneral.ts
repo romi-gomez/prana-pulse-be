@@ -33,7 +33,7 @@ export default defineType({
       title: 'Descripción General',
       description: 'Introducción y visión general del ciclo.',
       of: [
-        defineField({
+        {
           type: 'block',
           styles: [
             { title: 'Normal', value: 'normal' },
@@ -57,7 +57,7 @@ export default defineType({
               }),
             ],
           },
-        }),
+        },
       ],
     }),
     defineField({
@@ -71,7 +71,7 @@ export default defineType({
           title: 'Introducción',
           description: 'Texto introductorio para describir el estado de equilibrio.',
           of: [
-            defineField({
+            {
               type: 'block',
               styles: [
                 { title: 'Normal', value: 'normal' },
@@ -95,7 +95,7 @@ export default defineType({
                   }),
                 ],
               },
-            }),
+            },
           ],
         }),
         defineField({
@@ -104,6 +104,7 @@ export default defineType({
           title: 'Categorías del Equilibrio',
           of: [
             defineField({
+              name: 'categoryItem',
               type: 'object',
               title: 'Categoría',
               fields: [
@@ -113,7 +114,7 @@ export default defineType({
                   type: 'array',
                   title: 'Descripción',
                   of: [
-                    defineField({
+                    {
                       type: 'block',
                       styles: [
                         { title: 'Normal', value: 'normal' },
@@ -137,7 +138,7 @@ export default defineType({
                           }),
                         ],
                       },
-                    }),
+                    },
                   ],
                 }),
               ],
@@ -157,7 +158,7 @@ export default defineType({
           title: 'Introducción',
           description: 'Texto introductorio para describir los desafíos.',
           of: [
-            defineField({
+            {
               type: 'block',
               styles: [
                 { title: 'Normal', value: 'normal' },
@@ -181,7 +182,7 @@ export default defineType({
                   }),
                 ],
               },
-            }),
+            },
           ],
         }),
         defineField({
@@ -190,6 +191,7 @@ export default defineType({
           title: 'Desafíos',
           of: [
             defineField({
+              name: 'challengeItem',
               type: 'object',
               title: 'Desafío',
               fields: [
@@ -199,7 +201,7 @@ export default defineType({
                   type: 'array',
                   title: 'Descripción del Desafío',
                   of: [
-                    defineField({
+                    {
                       type: 'block',
                       styles: [
                         { title: 'Normal', value: 'normal' },
@@ -223,7 +225,7 @@ export default defineType({
                           }),
                         ],
                       },
-                    }),
+                    },
                   ],
                 }),
               ],
@@ -243,7 +245,7 @@ export default defineType({
           title: 'Introducción',
           description: 'Texto introductorio para describir el exceso de energía.',
           of: [
-            defineField({
+            {
               type: 'block',
               styles: [
                 { title: 'Normal', value: 'normal' },
@@ -267,7 +269,7 @@ export default defineType({
                   }),
                 ],
               },
-            }),
+            },
           ],
         }),
         defineField({
@@ -276,8 +278,9 @@ export default defineType({
           title: 'Categorías del Exceso',
           of: [
             defineField({
+              name: 'excessEnergyItem',
               type: 'object',
-              title: 'Categoría',
+              title: 'Manifestación de Exceso',
               fields: [
                 { name: 'name', type: 'string', title: 'Nombre de la Categoría' },
                 defineField({
@@ -285,7 +288,7 @@ export default defineType({
                   type: 'array',
                   title: 'Descripción',
                   of: [
-                    defineField({
+                    {
                       type: 'block',
                       styles: [
                         { title: 'Normal', value: 'normal' },
@@ -309,7 +312,7 @@ export default defineType({
                           }),
                         ],
                       },
-                    }),
+                    },
                   ],
                 }),
               ],
@@ -334,7 +337,7 @@ export default defineType({
           type: 'array',
           title: 'Descripción Breve',
           of: [
-            defineField({
+            {
               type: 'block',
               styles: [
                 { title: 'Normal', value: 'normal' },
@@ -358,7 +361,7 @@ export default defineType({
                   }),
                 ],
               },
-            }),
+            },
           ],
         }),
       ],
@@ -369,6 +372,7 @@ export default defineType({
       title: 'Objetivos del Viaje',
       of: [
         defineField({
+          name: 'objectiveItem',
           type: 'object',
           title: 'Objetivo',
           fields: [
@@ -378,7 +382,7 @@ export default defineType({
               type: 'array',
               title: 'De Dónde Partimos',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -402,7 +406,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
             defineField({
@@ -410,7 +414,7 @@ export default defineType({
               type: 'array',
               title: 'Hacia Dónde Vamos',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -434,7 +438,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
           ],
@@ -457,7 +461,7 @@ export default defineType({
           type: 'array',
           title: 'Descripción',
           of: [
-            defineField({
+            {
               type: 'block',
               styles: [
                 { title: 'Normal', value: 'normal' },
@@ -481,7 +485,7 @@ export default defineType({
                   }),
                 ],
               },
-            }),
+            },
           ],
         }),
       ],
@@ -492,6 +496,7 @@ export default defineType({
       title: 'Mensajes del Oráculo',
       of: [
         defineField({
+          name: 'oracleMessageItem',
           type: 'object',
           title: 'Mensaje del Oráculo',
           fields: [
@@ -501,7 +506,7 @@ export default defineType({
               title: 'Mensaje del Oráculo',
               description: 'Texto enriquecido para el mensaje del oráculo.',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -525,7 +530,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
             defineField({
@@ -534,6 +539,7 @@ export default defineType({
               title: 'Invitaciones del Oráculo',
               of: [
                 defineField({
+                  name: 'invitationItem',
                   type: 'object',
                   title: 'Invitación del Oráculo',
                   fields: [
@@ -543,7 +549,7 @@ export default defineType({
                       type: 'array',
                       title: 'Descripción',
                       of: [
-                        defineField({
+                        {
                           type: 'block',
                           styles: [
                             { title: 'Normal', value: 'normal' },
@@ -567,7 +573,7 @@ export default defineType({
                               }),
                             ],
                           },
-                        }),
+                        },
                       ],
                     }),
                   ],
@@ -584,6 +590,7 @@ export default defineType({
       title: 'Afirmaciones',
       of: [
         defineField({
+          name: 'affirmationItem',
           type: 'object',
           title: 'Afirmación',
           fields: [
@@ -592,7 +599,7 @@ export default defineType({
               type: 'array',
               title: 'Texto de la Afirmación',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -616,7 +623,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
           ],
@@ -629,6 +636,7 @@ export default defineType({
       title: 'Disparadores',
       of: [
         defineField({
+          name: 'triggerItem',
           type: 'object',
           title: 'Disparador',
           fields: [
@@ -637,7 +645,7 @@ export default defineType({
               type: 'array',
               title: 'Texto del Disparador',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -661,7 +669,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
           ],
@@ -674,6 +682,7 @@ export default defineType({
       title: 'Propuesta de Actividades',
       of: [
         defineField({
+          name: 'activityItem',
           type: 'object',
           title: 'Actividad',
           fields: [
@@ -683,7 +692,7 @@ export default defineType({
               type: 'array',
               title: 'Descripción',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -707,7 +716,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
             defineField({
@@ -726,6 +735,7 @@ export default defineType({
       title: 'Meditaciones Guiadas',
       of: [
         defineField({
+          name: 'meditationItem',
           type: 'object',
           title: 'Meditación Guiada',
           fields: [
@@ -735,7 +745,7 @@ export default defineType({
               type: 'array',
               title: 'Descripción',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -759,7 +769,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
             defineField({
@@ -778,6 +788,7 @@ export default defineType({
       title: 'Meditaciones Cotidianas',
       of: [
         defineField({
+          name: 'dailyMeditationItem',
           type: 'object',
           title: 'Meditación Cotidiana',
           fields: [
@@ -787,7 +798,7 @@ export default defineType({
               type: 'array',
               title: 'Descripción',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -811,7 +822,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
             defineField({
@@ -830,6 +841,7 @@ export default defineType({
       title: 'Prácticas y Herramientas',
       of: [
         defineField({
+          name: 'practiceItem',
           type: 'object',
           title: 'Práctica o Herramienta',
           fields: [
@@ -839,7 +851,7 @@ export default defineType({
               type: 'array',
               title: 'Descripción',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -863,7 +875,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
           ],
@@ -876,15 +888,16 @@ export default defineType({
       title: 'chatGPTPrompts',
       of: [
         defineField({
+          name: 'promptItem',
           type: 'object',
-          title: 'chatGPTPrompt',
+          title: 'Prompt para ChatGPT',
           fields: [
             defineField({
               name: 'text',
               type: 'array',
               title: 'Prompt para chat gpt',
               of: [
-                defineField({
+                {
                   type: 'block',
                   styles: [
                     { title: 'Normal', value: 'normal' },
@@ -908,7 +921,7 @@ export default defineType({
                       }),
                     ],
                   },
-                }),
+                },
               ],
             }),
           ],
@@ -924,31 +937,31 @@ export default defineType({
           name: 'images',
           type: 'array',
           title: 'Imágenes',
-          of: [defineField({ type: 'string' })],
+          of: [defineField({ name: 'imageUrl', type: 'string' })],
         }),
         defineField({
           name: 'videos',
           type: 'array',
           title: 'Videos',
-          of: [defineField({ type: 'string' })],
+          of: [defineField({ name: 'videoUrl', type: 'string' })],
         }),
         defineField({
           name: 'audios',
           type: 'array',
           title: 'Audios',
-          of: [defineField({ type: 'string' })],
+          of: [defineField({ name: 'audioUrl', type: 'string' })],
         }),
         defineField({
           name: 'links',
           type: 'array',
           title: 'Enlaces Externos',
-          of: [defineField({ type: 'string' })],
+          of: [defineField({ name: 'linkUrl', type: 'string' })],
         }),
         defineField({
           name: 'spotifyPlaylists',
           type: 'array',
           title: 'Playlists de Spotify',
-          of: [defineField({ type: 'string' })],
+          of: [defineField({ name: 'spotifyPlaylistUrl', type: 'string' })],
         }),
       ],
     }),

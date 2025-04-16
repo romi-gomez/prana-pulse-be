@@ -20,13 +20,11 @@ export default defineType({
       name: 'title',
       type: 'string',
       title: 'Título del Concepto',
-      description: 'Ejemplo: Conexión con la Tierra - Presencia Fundamental',
     }),
     defineField({
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Identificador único generado a partir del ciclo y el título.',
       options: {
         source: (document) => {
           const cycle = document.cycle as { name?: string } | undefined;
@@ -39,13 +37,11 @@ export default defineType({
       name: 'keyConcept',
       type: 'string',
       title: 'Concepto Clave',
-      description: 'Ejemplo: Estabilidad y Arraigo',
     }),
     defineField({
       name: 'description',
       type: 'array',
       title: 'Descripción General',
-      description: 'Texto introductorio del concepto.',
       of: [{ type: 'block' }],
     }),
     defineField({
@@ -59,12 +55,7 @@ export default defineType({
           title: 'Aspecto Clave',
           fields: [
             defineField({ name: 'title', type: 'string', title: 'Título del Aspecto' }),
-            defineField({ 
-              name: 'description', 
-              type: 'array', 
-              title: 'Descripción', 
-              of: [{ type: 'block' }] 
-            }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
           ],
         }),
       ],
@@ -74,18 +65,8 @@ export default defineType({
       type: 'object',
       title: 'De Dónde Partimos',
       fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-          title: 'Título de la Sección',
-          description: 'Ejemplo: Inseguridad y Desarraigo',
-        }),
-        defineField({
-          name: 'introduction',
-          type: 'array',
-          title: 'Introducción',
-          of: [{ type: 'block' }],
-        }),
+        defineField({ name: 'title', type: 'string', title: 'Título de la Sección' }),
+        defineField({ name: 'introduction', type: 'array', of: [{ type: 'block' }] }),
         defineField({
           name: 'items',
           type: 'array',
@@ -96,13 +77,8 @@ export default defineType({
               type: 'object',
               title: 'Desafío',
               fields: [
-                defineField({ name: 'area', type: 'string', title: 'Área (Ej. Emocionalmente, Físicamente)' }),
-                defineField({ 
-                  name: 'description', 
-                  type: 'array', 
-                  title: 'Descripción', 
-                  of: [{ type: 'block' }] 
-                }),
+                defineField({ name: 'area', type: 'string', title: 'Área' }),
+                defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
               ],
             }),
           ],
@@ -114,18 +90,8 @@ export default defineType({
       type: 'object',
       title: 'El Camino Hacia',
       fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-          title: 'Título de la Sección',
-          description: 'Ejemplo: El Camino Hacia la Estabilidad',
-        }),
-        defineField({
-          name: 'description',
-          type: 'array',
-          title: 'Descripción Breve',
-          of: [{ type: 'block' }],
-        }),
+        defineField({ name: 'title', type: 'string', title: 'Título de la Sección' }),
+        defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
       ],
     }),
     defineField({
@@ -139,18 +105,8 @@ export default defineType({
           title: 'Objetivo',
           fields: [
             defineField({ name: 'title', type: 'string', title: 'Título del Objetivo' }),
-            defineField({ 
-              name: 'from', 
-              type: 'array', 
-              title: 'De Dónde Partimos', 
-              of: [{ type: 'block' }] 
-            }),
-            defineField({ 
-              name: 'to', 
-              type: 'array', 
-              title: 'Hacia Dónde Vamos', 
-              of: [{ type: 'block' }] 
-            }),
+            defineField({ name: 'from', type: 'array', of: [{ type: 'block' }] }),
+            defineField({ name: 'to', type: 'array', of: [{ type: 'block' }] }),
           ],
         }),
       ],
@@ -160,18 +116,8 @@ export default defineType({
       type: 'object',
       title: 'Transformación',
       fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-          title: 'Título de la Sección',
-          description: 'Ejemplo: Transformación y Armonía',
-        }),
-        defineField({
-          name: 'description',
-          type: 'array',
-          title: 'Descripción',
-          of: [{ type: 'block' }],
-        }),
+        defineField({ name: 'title', type: 'string', title: 'Título de la Sección' }),
+        defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
       ],
     }),
     defineField({
@@ -184,35 +130,19 @@ export default defineType({
           type: 'object',
           title: 'Mensaje del Oráculo',
           fields: [
-            defineField({
-              name: 'message',
-              type: 'array',
-              title: 'Mensaje del Oráculo',
-              description: 'Texto enriquecido para el mensaje del oráculo.',
-              of: [{ type: 'block' }],
-            }),
+            defineField({ name: 'message', type: 'array', of: [{ type: 'block' }] }),
             defineField({
               name: 'invitations',
               type: 'array',
-              title: 'Invitaciones del Oráculo',
+              title: 'Invitaciones',
               of: [
                 defineField({
                   name: 'invitation',
                   type: 'object',
-                  title: 'Invitación del Oráculo',
+                  title: 'Invitación',
                   fields: [
-                    defineField({
-                      name: 'title',
-                      type: 'string',
-                      title: 'Título de la Invitación',
-                      description: 'Ejemplo: "Conéctate con la Naturaleza"',
-                    }),
-                    defineField({
-                      name: 'description',
-                      type: 'array',
-                      title: 'Descripción de la Invitación',
-                      of: [{ type: 'block' }],
-                    }),
+                    defineField({ name: 'title', type: 'string', title: 'Título de la Invitación' }),
+                    defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
                   ],
                 }),
               ],
@@ -229,19 +159,10 @@ export default defineType({
         defineField({
           name: 'oraclePhrase',
           type: 'object',
-          title: 'Frase del Oráculo',
+          title: 'Frase',
           fields: [
-            defineField({ 
-              name: 'text', 
-              type: 'string', 
-              title: 'Texto de la Frase' 
-            }),
-            defineField({ 
-              name: 'explanation', 
-              type: 'array', 
-              title: 'Explicación', 
-              of: [{ type: 'block' }] 
-            }),
+            defineField({ name: 'text', type: 'string', title: 'Texto' }),
+            defineField({ name: 'explanation', type: 'array', of: [{ type: 'block' }] }),
           ],
         }),
       ],
@@ -256,40 +177,20 @@ export default defineType({
           type: 'object',
           title: 'Práctica',
           fields: [
-            defineField({
-              name: 'title',
-              type: 'string',
-              title: 'Título de la Práctica',
-              description: 'Ejemplo: "Meditación de Enraizamiento"',
-            }),
-            defineField({
-              name: 'description',
-              type: 'array',
-              title: 'Descripción de la Práctica',
-              of: [{ type: 'block' }],
-            }),
+            defineField({ name: 'title', type: 'string', title: 'Título' }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
             defineField({
               name: 'steps',
               type: 'array',
-              title: 'Pasos de la Práctica',
+              title: 'Pasos',
               of: [
                 defineField({
                   name: 'step',
                   type: 'object',
                   title: 'Paso',
                   fields: [
-                    defineField({
-                      name: 'title',
-                      type: 'string',
-                      title: 'Título del Paso',
-                      description: 'Ejemplo: "Paso 1: Encuentra un lugar tranquilo"',
-                    }),
-                    defineField({
-                      name: 'description',
-                      type: 'array',
-                      title: 'Descripción del Paso',
-                      of: [{ type: 'block' }],
-                    }),
+                    defineField({ name: 'title', type: 'string', title: 'Título del Paso' }),
+                    defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
                   ],
                 }),
               ],
@@ -308,18 +209,8 @@ export default defineType({
           type: 'object',
           title: 'Afirmación',
           fields: [
-            defineField({
-              name: 'text',
-              type: 'string',
-              title: 'Texto de la Afirmación',
-              description: 'Ejemplo: "Estoy firmemente conectado/a con la tierra y presente en mi cuerpo"',
-            }),
-            defineField({
-              name: 'description',
-              type: 'array',
-              title: 'Descripción o Contexto',
-              of: [{ type: 'block' }],
-            }),
+            defineField({ name: 'text', type: 'string', title: 'Texto de la Afirmación' }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
           ],
         }),
       ],
@@ -334,19 +225,9 @@ export default defineType({
           type: 'object',
           title: 'Actividad',
           fields: [
-            defineField({ name: 'title', type: 'string', title: 'Título de la Actividad' }),
-            defineField({ 
-              name: 'description', 
-              type: 'array', 
-              title: 'Descripción', 
-              of: [{ type: 'block' }] 
-            }),
-            defineField({ 
-              name: 'media', 
-              type: 'array', 
-              title: 'Archivos Asociados', 
-              of: [defineField({ type: 'string', name: 'media' })] 
-            }),
+            defineField({ name: 'title', type: 'string', title: 'Título' }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
+            defineField({ name: 'media', type: 'array', title: 'Archivos Asociados', of: [{ type: 'string' }] }),
           ],
         }),
       ],
@@ -361,19 +242,9 @@ export default defineType({
           type: 'object',
           title: 'Meditación Guiada',
           fields: [
-            defineField({ name: 'title', type: 'string', title: 'Título de la Meditación' }),
-            defineField({ 
-              name: 'description', 
-              type: 'array', 
-              title: 'Descripción', 
-              of: [{ type: 'block' }] 
-            }),
-            defineField({ 
-              name: 'media', 
-              type: 'array', 
-              title: 'Archivos Asociados', 
-              of: [defineField({ type: 'string', name: 'media' })] 
-            }),
+            defineField({ name: 'title', type: 'string', title: 'Título' }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
+            defineField({ name: 'media', type: 'array', title: 'Archivos Asociados', of: [{ type: 'string' }] }),
           ],
         }),
       ],
@@ -388,18 +259,73 @@ export default defineType({
           type: 'object',
           title: 'Meditación Cotidiana',
           fields: [
-            defineField({ name: 'title', type: 'string', title: 'Título de la Meditación' }),
-            defineField({ 
-              name: 'description', 
-              type: 'array', 
-              title: 'Descripción', 
-              of: [{ type: 'block' }] 
-            }),
-            defineField({ 
-              name: 'media', 
-              type: 'array', 
-              title: 'Archivos Asociados', 
-              of: [defineField({ type: 'string', name: 'media' })] 
+            defineField({ name: 'title', type: 'string', title: 'Título' }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
+            defineField({ name: 'media', type: 'array', title: 'Archivos Asociados', of: [{ type: 'string' }] }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'practicesAndTools',
+      type: 'array',
+      title: 'Prácticas y Herramientas',
+      of: [
+        defineField({
+          name: 'practiceItem',
+          type: 'object',
+          title: 'Práctica o Herramienta',
+          fields: [
+            defineField({ name: 'title', type: 'string', title: 'Título de la Práctica' }),
+            defineField({ name: 'description', type: 'array', of: [{ type: 'block' }] }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'triggers',
+      type: 'array',
+      title: 'Disparadores',
+      of: [
+        defineField({
+          name: 'triggerItem',
+          type: 'object',
+          title: 'Disparador',
+          fields: [
+            defineField({ name: 'text', type: 'array', of: [{ type: 'block' }] }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'reflectionQuestions',
+      type: 'array',
+      title: 'Preguntas para Reflexionar',
+      of: [
+        defineField({
+          name: 'questionItem',
+          type: 'object',
+          title: 'Pregunta para Reflexionar',
+          fields: [
+            defineField({ name: 'text', type: 'string', title: 'Texto de la Pregunta' }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'chatGPTPrompts',
+      type: 'array',
+      title: 'chatGPT Prompts',
+      of: [
+        defineField({
+          name: 'promptItem',
+          type: 'object',
+          title: 'Prompt para ChatGPT',
+          fields: [
+            defineField({
+              name: 'text',
+              type: 'array',
+              of: [{ type: 'block' }],
             }),
           ],
         }),
@@ -409,43 +335,12 @@ export default defineType({
       name: 'media',
       type: 'object',
       title: 'Archivos Multimedia Asociados',
-      description: 'Archivos multimedia relacionados con el animal',
       fields: [
-        defineField({
-          name: 'images',
-          type: 'array',
-          title: 'Imágenes',
-          description: 'Lista de imágenes relacionadas con el animal',
-          of: [defineField({ type: 'string', name: 'imageUrl' })],
-        }),
-        defineField({
-          name: 'videos',
-          type: 'array',
-          title: 'Videos',
-          description: 'Lista de videos relacionados con el animal',
-          of: [defineField({ type: 'string', name: 'video' })],
-        }),
-        defineField({
-          name: 'audios',
-          type: 'array',
-          title: 'Audios',
-          description: 'Lista de audios relacionados con el animal',
-          of: [defineField({ type: 'string', name: 'audio' })],
-        }),
-        defineField({
-          name: 'links',
-          type: 'array',
-          title: 'Enlaces Externos',
-          description: 'Lista de enlaces externos relacionados con el animal',
-          of: [defineField({ type: 'string', name: 'link' })],
-        }),
-        defineField({
-          name: 'spotifyPlaylists',
-          type: 'array',
-          title: 'Playlists de Spotify',
-          description: 'Lista de playlists de Spotify relacionadas con el animal',
-          of: [defineField({ type: 'string', name: 'spotifyPlaylist' })],
-        }),
+        defineField({ name: 'images', type: 'array', title: 'Imágenes', of: [{ type: 'string' }] }),
+        defineField({ name: 'videos', type: 'array', title: 'Videos', of: [{ type: 'string' }] }),
+        defineField({ name: 'audios', type: 'array', title: 'Audios', of: [{ type: 'string' }] }),
+        defineField({ name: 'links', type: 'array', title: 'Enlaces Externos', of: [{ type: 'string' }] }),
+        defineField({ name: 'spotifyPlaylists', type: 'array', title: 'Playlists de Spotify', of: [{ type: 'string' }] }),
       ],
     }),
   ],
