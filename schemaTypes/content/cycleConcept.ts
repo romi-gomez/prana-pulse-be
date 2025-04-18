@@ -168,6 +168,53 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'keyPhrases',
+      type: 'array',
+      title: 'Frases Clave',
+      description: 'Frases inspiradoras relacionadas con este concepto.',
+      of: [
+        defineField({
+          name: 'phraseItem',
+          type: 'object',
+          title: 'Frase',
+          fields: [
+            defineField({
+              name: 'text',
+              type: 'array',
+              title: 'Texto de la Frase',
+              of: [
+                {
+                  type: 'block',
+                  styles: [
+                    { title: 'Normal', value: 'normal' },
+                    { title: 'Heading 1', value: 'h1' },
+                    { title: 'Heading 2', value: 'h2' },
+                  ],
+                  marks: {
+                    decorators: [
+                      { title: 'Bold', value: 'strong' },
+                      { title: 'Italic', value: 'em' },
+                    ],
+                    annotations: [
+                      defineField({
+                        name: 'styledSpan',
+                        type: 'object',
+                        title: 'Styled Span',
+                        fields: [
+                          { name: 'className', type: 'string', title: 'CSS Class for Span' },
+                          { name: 'id', type: 'string', title: 'Element ID (optional)' },
+                        ],
+                      }),
+                    ],
+                  },
+                },
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: 'practices',
       type: 'array',
       title: 'Prácticas Recomendadas',
@@ -326,6 +373,43 @@ export default defineType({
               name: 'text',
               type: 'array',
               of: [{ type: 'block' }],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'recommendedBooks',
+      type: 'array',
+      title: 'Libros Recomendados',
+      description: 'Lista de libros recomendados relacionados con este concepto.',
+      of: [
+        defineField({
+          name: 'bookItem',
+          type: 'object',
+          title: 'Libro',
+          fields: [
+            defineField({ 
+              name: 'book', 
+              type: 'string', 
+              title: 'Título del Libro',
+              description: 'Nombre completo del libro recomendado.'
+            }),
+            defineField({ 
+              name: 'cover', 
+              type: 'image', 
+              title: 'Portada',
+              description: 'Imagen de la portada del libro.',
+              options: {
+                hotspot: true,
+              }
+            }),
+            defineField({ 
+              name: 'description', 
+              type: 'array', 
+              title: 'Descripción',
+              description: 'Breve descripción del libro y su relevancia para este concepto.',
+              of: [{ type: 'block' }] 
             }),
           ],
         }),
